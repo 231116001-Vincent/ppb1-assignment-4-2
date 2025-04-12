@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         val editDate = findViewById<EditText>(R.id.edit_date)
         val editTime = findViewById<EditText>(R.id.edit_time)
+        val clearButton = findViewById<Button>(R.id.clear_button)
+        val saveButton = findViewById<Button>(R.id.save_button)
 
         editDate.setOnClickListener {
             DatePickerDialog(this, { view, year, monthOfYear, dayOfMonth ->
@@ -68,6 +70,15 @@ class MainActivity : AppCompatActivity() {
                 calendar.get(Calendar.MINUTE),
                 true
             ).show()
+        }
+
+        clearButton.setOnClickListener {
+            editDate.text.clear()
+            editTime.text.clear()
+        }
+
+        saveButton.setOnClickListener {
+            Toast.makeText(this, "Saved Data!", Toast.LENGTH_SHORT).show()
         }
     }
 }
